@@ -1,0 +1,1214 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #1a1a1a;
+  color: #e0e0e0;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   HIDDEN CONTENT
+========================================= */
+
+.hidden-content {
+  display: none;
+}
+
+.hidden-content.open {
+  display: block;
+}
+
+
+/* =========================================
+   LOADING SCREEN
+========================================= */
+
+.loader {
+  position: fixed;
+  inset: 0;
+
+  background: #1a1a1a;
+
+  z-index: 9999;
+
+  display: grid;
+  place-content: center;
+
+  text-align: center;
+
+  transition:
+    opacity 0.6s ease;
+}
+
+.loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader-mark {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 42px;
+
+  color: #c9a96b;
+}
+
+.loader-mark span {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 38px;
+}
+
+.loader p {
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  color: #a0a0a0;
+}
+
+
+/* =========================================
+   COVER
+========================================= */
+
+.cover {
+  min-height: 100svh;
+
+  position: relative;
+
+  display: grid;
+
+  place-items: center;
+
+  text-align: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 25%,
+      #2a2a2a 0%,
+      #1a1a1a 52%,
+      #111111 100%
+    );
+}
+
+.cover::before,
+.section::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.1;
+
+  pointer-events: none;
+
+  background-image:
+    url("assets/watercolor-texture.svg");
+
+  background-size: 700px;
+}
+
+.cover-inner {
+  position: relative;
+
+  z-index: 2;
+
+  padding: 40px 24px;
+
+  max-width: 850px;
+}
+
+
+/* =========================================
+   COVER TYPOGRAPHY
+========================================= */
+
+.bismillah {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #b0b0b0;
+}
+
+.opening {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  font-weight: 500;
+
+  color: #d0d0d0;
+}
+
+.divider {
+  width: 50px;
+
+  height: 1px;
+
+  background: #c9a96b;
+
+  margin: 25px auto;
+}
+
+.quote {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  font-style: italic;
+
+  color: #c0c0c0;
+}
+
+.cover-quote {
+  margin: 0 auto 30px;
+}
+
+.eyebrow {
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #b0b0b0;
+}
+
+
+/* =========================================
+   NAMES
+========================================= */
+
+.names {
+  margin: 8px 0 32px;
+
+  font-family: "Great Vibes", cursive;
+
+  font-weight: 400;
+
+  color: #c5a267;
+
+  font-size: clamp(42px, 8vw, 76px);
+
+  line-height: 1.15;
+}
+
+.names small {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 19px;
+
+  font-style: italic;
+
+  color: #a0a0a0;
+
+  margin: 8px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.btn {
+  border: 0;
+
+  padding: 13px 25px;
+
+  border-radius: 30px;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  display: inline-block;
+
+  transition: 0.3s ease;
+}
+
+.gold-btn {
+  background: #c9a96b;
+
+  color: #1a1a1a;
+
+  box-shadow:
+    0 7px 25px rgba(201, 169, 107, 0.3);
+}
+
+.gold-btn:hover {
+  transform: translateY(-2px);
+}
+
+.outline-btn {
+  border: 1px solid #c9a96b;
+
+  color: #c9a96b;
+
+  background: transparent;
+}
+
+.outline-btn:hover {
+  background: #c9a96b;
+
+  color: #1a1a1a;
+}
+
+
+/* =========================================
+   GUEST
+========================================= */
+
+.guest {
+  margin-top: 45px;
+
+  font-size: 11px;
+
+  color: #b0b0b0;
+}
+
+.guest strong {
+  font-weight: 500;
+
+  font-size: 20px;
+
+  color: #e0e0e0;
+}
+
+
+/* =========================================
+   FLORAL
+========================================= */
+
+.floral {
+  position: absolute;
+
+  width: 230px;
+
+  height: 500px;
+
+  opacity: 0.48;
+
+  background:
+    url("assets/floral.svg")
+    center / contain
+    no-repeat;
+
+  pointer-events: none;
+}
+
+.floral-left {
+  left: -75px;
+
+  top: 15%;
+
+  transform: rotate(-10deg);
+}
+
+.floral-right {
+  right: -75px;
+
+  bottom: 10%;
+
+  transform:
+    scaleX(-1)
+    rotate(-10deg);
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.nav {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  background: rgba(26, 26, 26, 0.93);
+
+  backdrop-filter: blur(12px);
+
+  border-bottom:
+    1px solid #333333;
+
+  display: flex;
+
+  justify-content: center;
+
+  gap: 22px;
+
+  padding: 13px;
+}
+
+.nav a {
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  text-decoration: none;
+
+  color: #c0c0c0;
+
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  color: #c9a96b;
+}
+
+
+/* =========================================
+   GENERAL SECTION
+========================================= */
+
+.section {
+  position: relative;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  padding: 90px 20px;
+
+  max-width: 1200px;
+
+  margin: auto;
+}
+
+.section h2 {
+  position: relative;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(34px, 5vw, 48px);
+
+  font-weight: 600;
+
+  color: #e0e0e0;
+
+  margin:
+    0 0 40px;
+}
+
+
+/* =========================================
+   COUPLE
+========================================= */
+
+.couple-grid {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  align-items: center;
+
+  gap: 20px;
+
+  max-width: 850px;
+
+  margin: auto;
+}
+
+.portrait {
+  width: min(280px, 75vw);
+
+  aspect-ratio: 4 / 5;
+
+  border-radius:
+    140px
+    140px
+    18px
+    18px;
+
+  overflow: hidden;
+
+  margin: auto;
+
+  border:
+    1px solid #444444;
+
+  padding: 7px;
+
+  background: #2a2a2a;
+}
+
+.portrait img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius:
+    130px
+    130px
+    12px
+    12px;
+}
+
+.person h3 {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 31px;
+
+  font-weight: 500;
+
+  color: #c9a96b;
+
+  margin:
+    14px 0 2px;
+}
+
+.person-role {
+  font-size: 9px;
+
+  letter-spacing: 2px;
+
+  color: #a0a0a0;
+}
+
+.person p:last-child {
+  font-size: 12px;
+
+  color: #b0b0b0;
+}
+
+.ampersand {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 44px;
+
+  color: #c9a96b;
+}
+
+
+/* =========================================
+   QUOTE SECTION
+========================================= */
+
+.quote-section {
+  max-width: none;
+
+  background: #222222;
+
+  padding:
+    75px
+    20px;
+}
+
+.ornament {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 34px;
+
+  color: #c9a96b;
+}
+
+
+/* =========================================
+   EVENT
+========================================= */
+
+.event-section {
+  background: #1a1a1a;
+}
+
+.event-card {
+  position: relative;
+
+  max-width: 680px;
+
+  margin: auto;
+
+  padding:
+    42px
+    25px;
+
+  border:
+    1px solid #444444;
+
+  border-radius: 18px;
+
+  background:
+    rgba(42, 42, 42, 0.8);
+
+  box-shadow:
+    0 15px 50px
+    rgba(0, 0, 0, 0.3);
+}
+
+.event-date {
+  color: #b0b0b0;
+
+  margin-bottom: 30px;
+}
+
+.event-date strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 82px;
+
+  font-weight: 600;
+
+  color: #c9a96b;
+
+  line-height: 1;
+}
+
+.event-date span {
+  font-size: 11px;
+
+  letter-spacing: 3px;
+}
+
+.event-details {
+  margin-bottom: 25px;
+}
+
+.detail {
+  display: flex;
+
+  gap: 15px;
+
+  text-align: left;
+
+  justify-content: center;
+
+  margin:
+    20px auto;
+
+  max-width: 470px;
+}
+
+.icon {
+  color: #c9a96b;
+
+  font-size: 20px;
+}
+
+.detail b {
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+.detail p {
+  font-size: 12px;
+
+  margin: 3px 0;
+
+  color: #b0b0b0;
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown-section {
+  background: #222222;
+
+  max-width: none;
+}
+
+.countdown {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: clamp(8px, 4vw, 40px);
+}
+
+.countdown div {
+  min-width: 65px;
+}
+
+.countdown strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: clamp(38px, 8vw, 65px);
+
+  font-weight: 500;
+
+  color: #c9a96b;
+}
+
+.countdown span {
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  color: #a0a0a0;
+}
+
+.countdown i {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 30px;
+
+  color: #c9a96b;
+}
+
+
+/* =========================================
+   FAMILY
+========================================= */
+
+.family-grid {
+  position: relative;
+
+  max-width: 700px;
+
+  margin:
+    45px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 40px;
+
+  text-align: center;
+}
+
+.family-grid div {
+  padding: 15px;
+
+  border-top:
+    1px solid #444444;
+}
+
+.family-grid p {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 18px;
+
+  margin: 7px;
+}
+
+.family-bottom {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 15px;
+}
+
+.family-bottom span {
+  color: #c9a96b;
+
+  font-size: 25px;
+}
+
+
+/* =========================================
+   RSVP
+========================================= */
+
+.rsvp-grid {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 35px;
+
+  max-width: 900px;
+
+  margin: auto;
+
+  text-align: left;
+}
+
+.form-card,
+.gift-card {
+  background: #2a2a2a;
+
+  border:
+    1px solid #444444;
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  box-shadow:
+    0 15px 50px
+    rgba(0, 0, 0, 0.3);
+}
+
+.form-card label {
+  display: block;
+
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+
+  color: #c0c0c0;
+}
+
+.form-card input,
+.form-card select,
+.form-card textarea {
+  width: 100%;
+
+  margin-top: 6px;
+
+  border:
+    1px solid #555555;
+
+  border-radius: 10px;
+
+  padding: 12px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 13px;
+
+  background: #1a1a1a;
+
+  color: #e0e0e0;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+  border-color: #c9a96b;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(201, 169, 107, 0.15);
+}
+
+.form-card textarea {
+  resize: vertical;
+}
+
+.messages {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.message {
+  padding: 17px;
+
+  border:
+    1px solid #444444;
+
+  border-radius: 14px;
+
+  background: #2a2a2a;
+}
+
+.message b {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 20px;
+
+  color: #c9a96b;
+}
+
+.message small {
+  float: right;
+
+  color: #a0a0a0;
+}
+
+.message p {
+  font-size: 12px;
+
+  margin: 5px 0;
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-grid {
+  position: relative;
+
+  columns: 3 220px;
+
+  column-gap: 12px;
+}
+
+.gallery-grid img {
+  width: 100%;
+
+  display: block;
+
+  margin:
+    0 0 12px;
+
+  border-radius: 12px;
+
+  break-inside: avoid;
+
+  background: #333333;
+
+  min-height: 170px;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   GIFT
+========================================= */
+
+.gift {
+  background: #222222;
+
+  max-width: none;
+}
+
+.gift-card {
+  max-width: 390px;
+
+  margin: auto;
+
+  text-align: center;
+}
+
+.bank-logo {
+  font-family: "Inter", sans-serif;
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #a0a0a0;
+
+  letter-spacing: 3px;
+}
+
+.gift-card strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 28px;
+
+  color: #e0e0e0;
+
+  letter-spacing: 2px;
+}
+
+.gift-card p {
+  font-size: 11px;
+}
+
+.gift-card small {
+  display: block;
+
+  margin-top: 10px;
+
+  color: #a0a0a0;
+}
+
+
+/* =========================================
+   CLOSING
+========================================= */
+
+.closing {
+  min-height: 650px;
+
+  display: grid;
+
+  align-content: center;
+
+  gap: 18px;
+}
+
+.closing-names {
+  font-family: "Great Vibes", cursive !important;
+
+  font-size: 48px !important;
+
+  color: #c9a96b !important;
+
+  margin: 0 !important;
+}
+
+.closing-names span {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 28px;
+
+  color: #a0a0a0;
+}
+
+.whatsapp {
+  color: #c0c0c0;
+
+  font-size: 11px;
+
+  text-decoration: none;
+
+  border-bottom:
+    1px solid #c9a96b;
+
+  padding-bottom: 3px;
+
+  margin: auto;
+}
+
+.bottom-floral {
+  bottom: -250px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  opacity: 0.22;
+
+  width: 500px;
+}
+
+
+/* =========================================
+   MUSIC
+========================================== */
+
+.music-toggle {
+  position: fixed;
+
+  right: 17px;
+
+  bottom: 17px;
+
+  z-index: 50;
+
+  width: 43px;
+
+  height: 43px;
+
+  border:
+    1px solid #c9a96b;
+
+  background: #2a2a2a;
+
+  color: #c9a96b;
+
+  border-radius: 50%;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0, 0, 0, 0.3);
+}
+
+
+/* =========================================
+   REVEAL ANIMATION
+========================================= */
+
+.reveal {
+  opacity: 0;
+
+  transform:
+    translateY(20px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+
+  transform: none;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .desktop {
+    display: none;
+  }
+
+  .floral {
+    width: 150px;
+
+    height: 330px;
+
+    opacity: 0.32;
+  }
+
+  .couple-grid {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+  }
+
+  .ampersand {
+    margin:
+      -8px 0;
+  }
+
+  .rsvp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .family-grid {
+    gap: 10px;
+  }
+
+  .family-grid p {
+    font-size: 16px;
+  }
+
+  .section {
+    padding:
+      70px 17px;
+  }
+
+  .nav {
+    gap: 15px;
+  }
+
+  .nav a {
+    font-size: 9px;
+  }
+
+  .gallery-grid {
+    columns: 2 140px;
+  }
+
+  .opening {
+    font-size: 16px;
+  }
+
+  .cover-inner {
+    padding-top: 65px;
+  }
+
+  .countdown {
+    gap: 5px;
+  }
+
+  .countdown div {
+    min-width: 58px;
+  }
+
+  .countdown i {
+    font-size: 20px;
+  }
+
+  .event-card {
+    padding:
+      35px 18px;
+  }
+
+  .detail {
+    justify-content: flex-start;
+  }
+
+  .closing-names {
+    font-size: 40px !important;
+  }
+
+}
+
+
+/* =========================================
+   AMPERSAND NAME (Cover)
+========================================== */
+
+.ampersand-name {
+  font-family: "Great Vibes", cursive;
+
+  font-size: 32px;
+
+  color: #c9a96b;
+
+  display: block;
+
+  margin: 15px 0;
+}
+
+
+/* =========================================
+   COUPLE CLOSING
+========================================== */
+
+.couple-closing {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin: 15px 0 30px;
+
+  font-family: "Great Vibes", cursive;
+
+  font-size: 36px;
+
+  color: #c9a96b;
+}
+
+.couple-closing .ampersand-name {
+  font-size: 28px;
+
+  margin: 0;
+}
